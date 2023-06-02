@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
 
 namespace Infrastructure.Models
 {
@@ -19,13 +18,13 @@ namespace Infrastructure.Models
         public string? Email { get; set; }
         public byte[]? PasswordHash { get; set; }
         public byte[]? PasswordSalt { get; set; }
-        public string? FacebookId { get; set; }
-        public string? GoogleId { get; set; }
-        [ForeignKey("role")]
-        public Guid RoleId { get; set; }
+        public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
 
+        [ForeignKey("role")]
+        public Guid RoleId { get; set; }
+       
         public virtual Role? Role { get; set; }
        
     }

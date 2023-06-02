@@ -1,6 +1,7 @@
 using Domain.Common;
 using Domain.Common.Configurations;
 using Infrastructure.Common.Configurations;
+using Infrastructure.Common;
 using Infrastructure.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
 builder.Services.AddServices();
+builder.Services.AddInfrastructureServices();
 
 //AppSettings configs
 var config = builder.Configuration;
