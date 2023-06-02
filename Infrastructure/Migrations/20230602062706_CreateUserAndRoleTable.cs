@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -24,12 +23,12 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "roles",
-                columns: new[] { "RolId", "Name", "IsDeleted" },
+                columns: new[] { "RoleId", "Name", "IsDeleted" },
                 values: new object[] { Guid.NewGuid(), "Admin", false });
 
             migrationBuilder.InsertData(
                 table: "roles",
-                columns: new[] { "RolId", "Name", "IsDeleted" },
+                columns: new[] { "RoleId", "Name", "IsDeleted" },
                 values: new object[] { Guid.NewGuid(), "Client", false });
 
             migrationBuilder.CreateTable(

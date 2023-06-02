@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HahnAPI", "HahnAPI\HahnAPI.csproj", "{C2AE678E-2F4A-43F1-9E44-E06176943C22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HahnAPI", "HahnAPI\HahnAPI.csproj", "{C2AE678E-2F4A-43F1-9E44-E06176943C22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3664D6B9-895F-46AC-9712-C61BEFB6277E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3664D6B9-895F-46AC-9712-C61BEFB6277E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{CCD2C676-BCFF-4199-8C78-4549C67D8C92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{CCD2C676-BCFF-4199-8C78-4549C67D8C92}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4A36F450-3E82-4998-ACCD-DA91D11C986D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A36F450-3E82-4998-ACCD-DA91D11C986D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A36F450-3E82-4998-ACCD-DA91D11C986D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A36F450-3E82-4998-ACCD-DA91D11C986D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A36F450-3E82-4998-ACCD-DA91D11C986D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
