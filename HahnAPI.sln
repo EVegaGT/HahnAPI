@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HahnAPI", "HahnAPI\HahnAPI.csproj", "{C2AE678E-2F4A-43F1-9E44-E06176943C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3664D6B9-895F-46AC-9712-C61BEFB6277E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{CCD2C676-BCFF-4199-8C78-4549C67D8C92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2AE678E-2F4A-43F1-9E44-E06176943C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AE678E-2F4A-43F1-9E44-E06176943C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AE678E-2F4A-43F1-9E44-E06176943C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AE678E-2F4A-43F1-9E44-E06176943C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3664D6B9-895F-46AC-9712-C61BEFB6277E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3664D6B9-895F-46AC-9712-C61BEFB6277E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3664D6B9-895F-46AC-9712-C61BEFB6277E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3664D6B9-895F-46AC-9712-C61BEFB6277E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD2C676-BCFF-4199-8C78-4549C67D8C92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {698D3A74-10B1-4F23-9F3E-462B8FFBB785}
+	EndGlobalSection
+EndGlobal
