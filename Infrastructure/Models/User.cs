@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure.Models
 {
     [Table("users")]
+    [Index(nameof(User.Email), IsUnique = true)]
     public class User
     {
         [Key]

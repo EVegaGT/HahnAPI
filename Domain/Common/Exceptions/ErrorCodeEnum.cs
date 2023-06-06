@@ -71,6 +71,8 @@
         TokenNotGenerated = 4001,
         [StringValue("Could not login this user")]
         LoginFailed = 4002,
+        [StringValue("The email address has been already registered")]
+        EmailAlreadyExist = 4003,
         #endregion
     }
 }

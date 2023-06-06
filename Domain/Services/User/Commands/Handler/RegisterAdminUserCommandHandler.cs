@@ -12,14 +12,16 @@ namespace Domain.Services.User.Commands.Handler
     public class RegisterAdminUserCommandHandler : IRequestHandler<RegisterAdminUserCommand, AuthenticateResponse>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
         private readonly IRoleReadOnlyRepository _roleReadOnlyRepository;
         private readonly IMapper _mapper;
         private readonly IJwtHelper _jwtHelper;
        
-        public RegisterAdminUserCommandHandler(IUserRepository userRepository, IRoleReadOnlyRepository roleReadOnlyRepository, IMapper mapper, IJwtHelper jwtHelper)
+        public RegisterAdminUserCommandHandler(IUserRepository userRepository, IUserReadOnlyRepository userReadOnlyRepository, IRoleReadOnlyRepository roleReadOnlyRepository, IMapper mapper, IJwtHelper jwtHelper)
         {
             _userRepository = userRepository;
             _roleReadOnlyRepository = roleReadOnlyRepository;
+            _userReadOnlyRepository = userReadOnlyRepository;
             _mapper = mapper;
             _jwtHelper = jwtHelper;
         }
@@ -30,6 +32,7 @@ namespace Domain.Services.User.Commands.Handler
 
             try
             {
+                if (await _userReadOnlyRepository.ExistEmailUser(request.Email)) throw new HahnApiException(ErrorCodeEnum.EmailAlreadyExist);
                 if (request.UserId == Guid.Empty) request.UserId = Guid.NewGuid();
 
                 var role = await _roleReadOnlyRepository.GetRoleByName("Admin") ?? throw new HahnApiException(ErrorCodeEnum.UserRoleNotFound);

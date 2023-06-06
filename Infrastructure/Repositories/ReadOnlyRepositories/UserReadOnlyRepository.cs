@@ -26,5 +26,10 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
                 .Include(x => x.Role)
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<bool> ExistEmailUser(string email)
+        {
+            return await _dbContext.Users.AnyAsync(x => x.Email == email && x.Active);
+        }
     }
 }

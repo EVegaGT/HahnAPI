@@ -6,5 +6,6 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
     {
         Task<User?> GetUserByEmail(string email);
         Task<User?> GetUserById(Guid userId);
+        Task<bool> ExistEmailUser(string email);
     }
 }
