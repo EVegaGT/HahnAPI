@@ -101,6 +101,11 @@ namespace HahnAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                }
+
                 var command = _mapper.Map<RegisterAdminUserCommand>(user);
                 var result = await _mediator.Send(command);
                 return Created("api/Register", result);
@@ -141,6 +146,11 @@ namespace HahnAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                }
+
                 var command = _mapper.Map<LoginUserCommand>(login);
                 var result = await Task.Run(() => _mediator.Send(command));
                 return Ok(result);

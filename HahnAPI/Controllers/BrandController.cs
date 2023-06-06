@@ -6,6 +6,7 @@ using Domain.Models.Responses.Brand;
 using Domain.Services.Brand.Commands;
 using Domain.Services.Brand.Commands.Handlers;
 using Domain.Services.Brand.Queries;
+using Domain.Validations;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -47,6 +48,11 @@ namespace HahnAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                }
+
                 var command = _mapper.Map<CreateBrandCommand>(Brand);
                 var result = await _mediator.Send(command);
                 return Created("api/brand", result);
@@ -141,6 +147,11 @@ namespace HahnAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                }
+
                 var result = await _mediator.Send(new UpdateBrandCommand(brandId, brand.Name));
                 return Ok(result);
             }
