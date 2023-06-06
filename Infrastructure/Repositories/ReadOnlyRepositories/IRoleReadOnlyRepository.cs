@@ -6,5 +6,6 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
     {
         Task<Role?> GetRoleById(Guid roleId);
         Task<List<Role>> GetRoles(Guid roleId);
+        Task<Role?> GetRoleByName(string name);
     }
 }

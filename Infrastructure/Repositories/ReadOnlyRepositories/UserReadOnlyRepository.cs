@@ -22,7 +22,9 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
 
         public async Task<User?> GetUserByEmail(string email)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+            return await _dbContext.Users.Where(x => x.Email == email && x.Active)
+                .Include(x => x.Role)
+                .FirstOrDefaultAsync();
         }
     }
 }

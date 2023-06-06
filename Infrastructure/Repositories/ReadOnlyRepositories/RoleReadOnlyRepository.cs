@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
         {
             return await _dbContext.Roles.Where(x => !x.IsDeleted).ToListAsync();
         }
+
+        public async Task<Role?> GetRoleByName(string name)
+        {
+            return await _dbContext.Roles.FirstOrDefaultAsync(x => !x.IsDeleted && !string.IsNullOrEmpty(x.Name) && string.Equals(x.Name.ToLower(), name.ToLower()));
+        }
     }
 }

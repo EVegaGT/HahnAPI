@@ -1,11 +1,10 @@
-﻿namespace HahnAPI.Models.User.Request
+﻿namespace Domain.Models.Requests.User
 {
-    public class AuthenticateResponse
+    public class RegisterUserRequest
     {
-        public Guid Id { get; set; } 
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string Token { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }
