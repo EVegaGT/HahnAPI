@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Domain.Models.Dtos;
+using Domain.Models.Requests.Brand;
 using Domain.Models.Requests.User;
 using Domain.Models.Responses.Brand;
 using Domain.Models.Responses.User;
+using Domain.Services.Brand.Commands;
+using Domain.Services.Brand.Commands.Handlers;
 using Domain.Services.User.Commands;
 using Infrastructure.Models;
 
@@ -57,6 +60,10 @@ namespace Domain.Common
             CreateMap<BrandDto, Brand>();
             CreateMap<Brand, BrandDto>();
             CreateMap<BrandDto, GetBrandResponse>();
+            CreateMap<BrandRequest, CreateBrandCommand>();
+            CreateMap<UpdateBrandCommand, BrandDto>();
+            CreateMap<CreateBrandCommand, BrandDto>()
+                .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => false));
             #endregion
 
         }

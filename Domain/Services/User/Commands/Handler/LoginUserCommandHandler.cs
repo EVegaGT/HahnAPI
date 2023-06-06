@@ -20,6 +20,7 @@ namespace Domain.Services.User.Commands.Handler
             _jwtHelper = jwtHelper;
             _mapper = mapper;
         }
+
         public async Task<AuthenticateResponse> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             if (request == null) throw new HahnApiException(ErrorCodeEnum.LoginUserRequestIsRequired);
