@@ -1,7 +1,7 @@
 ﻿using Domain.Models.Responses.Brand;
 using MediatR;
 
-namespace Domain.Services.Brand.Commands.Handlers
+namespace Domain.Services.Brand.Commands
 {
     public class UpdateBrandCommand : IRequest<BrandResponse>
     {

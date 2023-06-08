@@ -5,6 +5,8 @@ using Domain.Models.Requests.Brand;
 using Domain.Validations.Brand;
 using Domain.Validations.User;
 using Domain.Models.Requests.User;
+using Domain.Validations.Category;
+using Domain.Models.Requests.Category;
 
 namespace Domain.Common
 {
@@ -21,6 +23,9 @@ namespace Domain.Common
 
             // Brand map
             services.AddScoped<IValidator<BrandRequest>, BrandValidator>();
+
+            // Category map
+            services.AddScoped<IValidator<CategoryRequest>, CategoryValidator>();
 
             return services;
         }

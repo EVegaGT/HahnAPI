@@ -1,11 +1,10 @@
 ﻿using Domain.Common.Exceptions;
 using Domain.Models.Responses.Brand;
-using Domain.Services.Brand.Commands.Handlers;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.ReadOnlyRepositories;
 using MediatR;
 
-namespace Domain.Services.Brand.Commands
+namespace Domain.Services.Brand.Commands.Handlers
 {
     public class UpdateBrandCommandHandler : IRequestHandler<UpdateBrandCommand, BrandResponse>
     {
@@ -25,7 +24,7 @@ namespace Domain.Services.Brand.Commands
 
             try
             {
-                var brand =  await _brandReadOnlyRepository.GetBrandById(request.BrandId) ?? throw new HahnApiException(ErrorCodeEnum.BrandNotFound);
+                var brand = await _brandReadOnlyRepository.GetBrandById(request.BrandId) ?? throw new HahnApiException(ErrorCodeEnum.BrandNotFound);
                 brand.Name = request.Name;
                 await _brandRepository.UpdateBrand(brand);
                 return new BrandResponse(brand.BrandId);

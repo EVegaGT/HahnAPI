@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Domain.Models.Dtos;
 using Domain.Models.Requests.Brand;
+using Domain.Models.Requests.Category;
 using Domain.Models.Requests.User;
 using Domain.Models.Responses.Brand;
+using Domain.Models.Responses.Category;
 using Domain.Models.Responses.User;
 using Domain.Services.Brand.Commands;
-using Domain.Services.Brand.Commands.Handlers;
+using Domain.Services.Category.Components;
 using Domain.Services.User.Commands;
 using Infrastructure.Models;
 
@@ -36,9 +38,13 @@ namespace Domain.Common
             #region Category maps
             CreateMap<CategoryDto, Category>();
             CreateMap<Category, CategoryDto>();
+            CreateMap<CategoryDto, GetCategoryResponse>();
+            CreateMap<CategoryRequest, CreateCategoryCommand>();
+            CreateMap<UpdateCategoryCommand, CategoryDto>();
+            CreateMap<CreateCategoryCommand, CategoryDto>()
+                .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => false));
 
             #endregion
-
 
             #region Role maps
             CreateMap<RoleDto, Role>();
