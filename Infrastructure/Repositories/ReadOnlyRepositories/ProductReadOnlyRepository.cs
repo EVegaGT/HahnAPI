@@ -24,7 +24,18 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
 
         public async Task<List<Product>> GetProducts()
         {
-            return await _dbContext.Products.Where(x => x.Status != ProductStatus.Inactive).ToListAsync();
+            return await _dbContext.Products.Where(x => x.Status != ProductStatus.Inactive)
+                .Include(x => x.Brand)
+                .Include(x => x.Category)
+                .ToListAsync();
+        }
+
+        public async Task<List<Product?>> GetProductsOrder(Guid orderId)
+        {
+            return await _dbContext.OrdersProducts
+                        .Where(x => x.OrderId == orderId)
+                        .Include(x => x.Product)
+                        .Select(x => x.Product).ToListAsync();
         }
     }
 }

@@ -6,5 +6,6 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
     {
         Task<Brand?> GetBrandById(Guid brandId);
         Task<List<Brand>> GetBrands();
+        Task<bool> ExistBrandById(Guid brandId);
     }
 }

@@ -27,5 +27,6 @@ namespace Infrastructure.Models
 
         public virtual Category? Category { get; set; }
         public virtual Brand? Brand { get; set; }
+        public virtual ICollection<OrdersProducts>? OrdersProducts { get; set; }
     }
 }

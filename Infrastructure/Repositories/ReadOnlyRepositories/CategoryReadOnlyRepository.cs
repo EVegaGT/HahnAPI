@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
         {
             return await _dbContext.Categories.Where(x => !x.IsDeleted).ToListAsync();
         }
+
+        public async Task<bool> ExistCategoryById(Guid categoryId)
+        {
+            return await _dbContext.Categories.AnyAsync(x => x.CategoryId == categoryId && !x.IsDeleted);
+        }
     }
 }

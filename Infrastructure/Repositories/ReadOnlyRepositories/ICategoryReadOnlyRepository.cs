@@ -6,5 +6,6 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
     {
         Task<List<Category>> GetCategories();
         Task<Category?> GetCategoryById(Guid categoryId);
+        Task<bool> ExistCategoryById(Guid categoryId);
     }
 }

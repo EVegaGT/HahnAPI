@@ -19,7 +19,7 @@
         [StringValue("A valid Role request is required")]
         RoleRequestIsRequired = 1004,
         [StringValue("A valid Get Product request is required")]
-        GetProductRequestIsRequired = 1006,
+        ProductRequestIsRequired = 1006,
         [StringValue("A valid Get Order request is required")]
         GetOrderRequestIsRequired = 1007,
         [StringValue("A valid Create Order request is required")]
@@ -54,8 +54,8 @@
         UserNotFound = 3002,
         [StringValue("User role not found")]
         UserRoleNotFound = 3003,
-        [StringValue("Products not found")]
-        ProductsNotFound = 3004,
+        [StringValue("Product not found")]
+        ProductNotFound = 3004,
         [StringValue("Category not found")]
         CategoryNotFound = 3005,
         [StringValue("Roles not found")]

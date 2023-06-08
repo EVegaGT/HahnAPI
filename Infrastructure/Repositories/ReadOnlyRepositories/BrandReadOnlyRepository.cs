@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
         {
             return await _dbContext.Brands.Where(x => !x.IsDeleted).ToListAsync();
         }
+
+        public async Task<bool> ExistBrandById(Guid brandId)
+        {
+            return await _dbContext.Brands.AnyAsync(x => x.BrandId == brandId && !x.IsDeleted);
+        }
     }
 }

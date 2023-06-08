@@ -7,6 +7,8 @@ using Domain.Validations.User;
 using Domain.Models.Requests.User;
 using Domain.Validations.Category;
 using Domain.Models.Requests.Category;
+using Domain.Validations.Product;
+using Domain.Models.Requests;
 
 namespace Domain.Common
 {
@@ -26,6 +28,9 @@ namespace Domain.Common
 
             // Category map
             services.AddScoped<IValidator<CategoryRequest>, CategoryValidator>();
+
+            // Product map
+            services.AddScoped<IValidator<ProductRequest>, ProductValidator>();
 
             return services;
         }
