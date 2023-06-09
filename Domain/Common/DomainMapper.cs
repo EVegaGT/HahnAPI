@@ -27,7 +27,9 @@ namespace Domain.Common
             CreateMap<LoginRequest, LoginUserCommand>();
             CreateMap<RegisterUserRequest, RegisterAdminUserCommand>();
             CreateMap<RegisterAdminUserCommand, UserDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FirstName));
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FirstName))
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow))
+                .ForMember(dest => dest.ModifiedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
             CreateMap<UserDto, AuthenticateResponse>()
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.Name));
             #endregion
@@ -41,9 +43,12 @@ namespace Domain.Common
                 .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand != null ? src.Brand.Name : string.Empty));
             CreateMap<ProductRequest, CreateProductCommand>();
             CreateMap<ProductRequest, UpdateProductCommand>();
-            CreateMap<UpdateProductCommand, ProductDto>();
+            CreateMap<UpdateProductCommand, ProductDto>()
+                .ForMember(dest => dest.ModifiedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
             CreateMap<CreateProductCommand, ProductDto>()
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => ProductStatus.Active));
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => ProductStatus.Active))
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow))
+                .ForMember(dest => dest.ModifiedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
 
             #endregion
 

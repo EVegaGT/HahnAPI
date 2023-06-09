@@ -35,9 +35,10 @@ namespace Domain.Services.Product.Command.Handlers
                 if (!await _brandReadOnlyRepository.ExistBrandById(request.BrandId)) throw new HahnApiException(ErrorCodeEnum.BrandNotFound);
                 if (!await _categoryReadOnlyRepository.ExistCategoryById(request.CategoryId)) throw new HahnApiException(ErrorCodeEnum.BrandNotFound);
 
-                var productDto = _mapper.Map<ProductDto>(await _productReadOnlyRepository.GetProductById(request.ProductId) ?? throw new HahnApiException(ErrorCodeEnum.ProductNotFound));
-                productDto.Name = request.Name;
-                productDto.ModifiedAt = DateTime.UtcNow;
+                var product = await _productReadOnlyRepository.GetProductById(request.ProductId) ?? throw new HahnApiException(ErrorCodeEnum.ProductNotFound);
+                var productDto = _mapper.Map<ProductDto>(product);
+
+                _mapper.Map(request, productDto);
 
                 if (productDto.Quantity == 0)
                 {
@@ -48,7 +49,8 @@ namespace Domain.Services.Product.Command.Handlers
                     productDto.Status = ProductStatus.Active;
                 }
 
-                await _productRepository.UpdateProduct(_mapper.Map<Infrastructure.Models.Product>(productDto));
+                _mapper.Map(productDto, product);
+                await _productRepository.UpdateProduct(product);
                 return _mapper.Map<ProductResponse>(productDto);
             }
             catch (Exception ex)

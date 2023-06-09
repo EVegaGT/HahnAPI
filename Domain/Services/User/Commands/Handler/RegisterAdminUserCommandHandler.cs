@@ -40,12 +40,15 @@ namespace Domain.Services.User.Commands.Handler
                 var user = _mapper.Map<UserDto>(request);
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
-                user.CreatedAt = DateTime.UtcNow;
-                user.ModifiedAt = DateTime.UtcNow;
                 user.Active = true;
                 user.RoleId = role.RoleId;
 
                 await _userRepository.CreateUser(_mapper.Map<Infrastructure.Models.User>(user));
+
+                //assign role to generate token as admin
+                var rolDto = _mapper.Map<RoleDto>(role);
+                user.Role = rolDto;
+
                 var accessToken = _jwtHelper.GenerateToken(user);
                 var response = _mapper.Map<AuthenticateResponse>(user);
                 response.Token = accessToken;
