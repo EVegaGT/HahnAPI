@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Common.Exceptions;
-using Domain.Models.Requests;
+using Domain.Models.Requests.Product;
 using Domain.Models.Responses.Product;
 using Domain.Services.Product.Command;
 using Domain.Services.Product.Queries;

@@ -6,5 +6,8 @@ namespace Infrastructure.Repositories
     {
         Task CreateOrder(Order order);
         Task UpdateOrder(Order order);
+        Task AddOrderProduct(OrdersProducts orderProduct);
+        Task UpdateOrderProduct(OrdersProducts orderProduct);
+        Task RemoveOrderProduct(Guid orderId, Guid productId);
     }
 }

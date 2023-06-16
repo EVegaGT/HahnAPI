@@ -23,11 +23,13 @@
         [StringValue("A valid Get Order request is required")]
         GetOrderRequestIsRequired = 1007,
         [StringValue("A valid Create Order request is required")]
-        CreateOrderRequestIsRequired = 1008,
+        OrderRequestIsRequired = 1008,
         [StringValue("A valid Category request is required")]
         CategoryRequestIsRequired = 1009,
         [StringValue("A valid Brand request is required")]
         BrandRequestIsRequired = 1010,
+        [StringValue("A valid add order product request is required")]
+        OrderProductRequestIsRequired = 1011,
         #endregion
 
         #region 2000 - invalid errors

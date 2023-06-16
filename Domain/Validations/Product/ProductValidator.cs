@@ -1,4 +1,4 @@
-﻿using Domain.Models.Requests;
+﻿using Domain.Models.Requests.Product;
 using FluentValidation;
 
 

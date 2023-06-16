@@ -8,7 +8,8 @@ using Domain.Models.Requests.User;
 using Domain.Validations.Category;
 using Domain.Models.Requests.Category;
 using Domain.Validations.Product;
-using Domain.Models.Requests;
+using Domain.Models.Requests.Product;
+using Domain.Services.Order.Helper;
 
 namespace Domain.Common
 {
@@ -31,6 +32,8 @@ namespace Domain.Common
 
             // Product map
             services.AddScoped<IValidator<ProductRequest>, ProductValidator>();
+
+            // Order map
 
             return services;
         }

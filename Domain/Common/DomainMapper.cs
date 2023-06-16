@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Domain.Models.Dtos;
-using Domain.Models.Requests;
 using Domain.Models.Requests.Brand;
 using Domain.Models.Requests.Category;
+using Domain.Models.Requests.Product;
 using Domain.Models.Requests.User;
 using Domain.Models.Responses.Brand;
 using Domain.Models.Responses.Category;

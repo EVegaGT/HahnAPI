@@ -37,5 +37,15 @@ namespace Infrastructure.Repositories.ReadOnlyRepositories
                         .Include(x => x.Product)
                         .Select(x => x.Product).ToListAsync();
         }
+
+        public async Task<bool> ExistProduct(Guid productId)
+        {
+            return await _dbContext.Products.AnyAsync(x => x.ProductId == productId);
+        }
+
+        public async Task<decimal> GetProductPriceById(Guid productId)
+        {
+            return await _dbContext.Products.Where(x => x.ProductId == productId).Select(x => x.Price).FirstAsync();
+        }
     }
 }

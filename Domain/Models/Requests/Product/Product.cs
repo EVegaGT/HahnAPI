@@ -1,4 +1,4 @@
-﻿namespace Domain.Models.Requests
+﻿namespace Domain.Models.Requests.Product
 {
     public class ProductRequest
     {
